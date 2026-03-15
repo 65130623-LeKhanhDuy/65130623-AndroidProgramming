@@ -5,8 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         so1 = findViewById(R.id.so1);
@@ -30,22 +27,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String a = so1.getText().toString();
-                String b = so2.getText().toString();
+                int a = Integer.parseInt(so1.getText().toString());
+                int b = Integer.parseInt(so2.getText().toString());
 
-                if(a.isEmpty() || b.isEmpty()){
-                    txtKetQua.setText("Vui lòng nhập đủ 2 số");
-                    return;
-                }
-
-                int soA = Integer.parseInt(a);
-                int soB = Integer.parseInt(b);
-
-                int tong = soA + soB;
+                int tong = a + b;
 
                 txtKetQua.setText("Tổng = " + tong);
             }
         });
-
     }
 }
